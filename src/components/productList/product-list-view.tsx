@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SubCategoryDetailsProps, SubDetailsProps } from '.';
+import { CardProps } from '../../App';
 
-const ProductListView: React.FC<SubDetailsProps & SubCategoryDetailsProps> = ({
+const ProductListView: React.FC<SubDetailsProps&SubCategoryDetailsProps> = ({
   details,
   categoryDetails,
 }) => {
@@ -10,7 +11,7 @@ const ProductListView: React.FC<SubDetailsProps & SubCategoryDetailsProps> = ({
   
   return (
       <div>
-        {details.map((x: any, i: number) => {
+        {details.map((x: CardProps, i: number) => {
           return x.category === categoryDetails ? (
             <Link to={`/${x.category.replace(/ /g,'')}/${x.id}`} key={i}>
               <img src={x.image} alt="" width={100} />

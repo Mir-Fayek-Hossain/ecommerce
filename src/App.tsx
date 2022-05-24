@@ -10,10 +10,21 @@ export interface NavbarProps {
   navDetails: [];
 }
 export interface DetailsProps {
-  details: [];
+  details: [{
+    id:number;
+    title: string;
+    price: string;
+    category: string;
+    description: string;
+    image: string;
+    rating: {
+      rate: string;
+    };
+  }];
 }
 // for product card
 export interface CardProps {
+  id: any;
   title: string;
   price: string;
   category: string;
@@ -42,13 +53,11 @@ const App: React.FC = () => {
   }
 
   data.map((itm: any) => {
-    // return <div key = {index}>{itm.category}</div>
     return da.push(itm.category);
   });
   return (
     <>
       <div className="App">
-        {}
         {loading ? (
           <h1>Loading</h1>
         ) : (
@@ -61,6 +70,7 @@ const App: React.FC = () => {
                     path={`/${itm.category.replace(/ /g, '')}/${itm.id}`}
                     element={
                       <ProductCard
+                      id={itm.id}
                         title={itm.title}
                         price={itm.price}
                         description={itm.description}

@@ -6,12 +6,20 @@ export interface SubCategoryDetailsProps {
   categoryDetails: string;
 }
 export interface SubDetailsProps {
-  details: [];
+  details: [{
+    id:number;
+    title: string;
+    price: string;
+    category: string;
+    description: string;
+    image: string;
+    rating: {
+      rate: string;
+    };
+  }];
 }
 
 const ProductList: React.FC<DetailsProps&categoryDetailsProps> = ({details,categoryDetails}) => {
-  
-
   console.log(categoryDetails);
   return  <ProductListView details={details} categoryDetails={categoryDetails}/>;
 };
